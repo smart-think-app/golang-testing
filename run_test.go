@@ -1,7 +1,6 @@
 package test
 
 import (
-	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -20,10 +19,12 @@ func TestCurl(t *testing.T) {
 	}
 	//Convert the body to type string
 	sb := string(body)
-	assert.Equal(t, `{
+	if `{
   "userId": 1,
   "id": 1,
   "title": "delectus aut autem",
   "completed": false
-}`, sb)
+}` != sb {
+		t.Errorf("fail")
+	}
 }
