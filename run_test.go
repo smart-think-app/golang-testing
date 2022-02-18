@@ -9,7 +9,7 @@ import (
 )
 
 func TestCurl(t *testing.T) {
-	resp, err := http.Get("http://localhost:1323")
+	resp, err := http.Get("https://jsonplaceholder.typicode.com/todos/1")
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -20,5 +20,10 @@ func TestCurl(t *testing.T) {
 	}
 	//Convert the body to type string
 	sb := string(body)
-	assert.Equal(t,"Hello, World! version latest ",sb)
+	assert.Equal(t, `{
+  "userId": 1,
+  "id": 1,
+  "title": "delectus aut autem",
+  "completed": false
+}`, sb)
 }
