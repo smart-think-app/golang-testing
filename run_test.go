@@ -23,7 +23,7 @@ func TestCurl(t *testing.T) {
   "userId": 1,
   "id": 1,
   "title": "delectus aut autem",
-  "completed" false
+  "completed": false
 }` != sb {
 		t.Errorf("fail")
 	}
